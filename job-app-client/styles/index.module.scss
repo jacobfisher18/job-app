@@ -44,7 +44,7 @@
 }
 
 .Bold {
-  font-family: 'brandon-bld';
+  font-family: 'brandon-med';
 }
 
 .AuthForm {
@@ -80,6 +80,7 @@
   padding: 8px 20px;
   margin-bottom: 10px;
   min-width: 300px;
+  font-family: 'brandon-reg';
 
   @media #{$media-s} {
     min-width: 250px;
@@ -94,7 +95,7 @@
 .AuthFormTitleText {
   margin-top: 0px;
   margin-bottom: 50px;
-  font-family: 'brandon-med';
+  font-family: 'brandon-reg';
   font-size: $font-l;
   color: $darkest-grey;
   letter-spacing: -0.09px;
