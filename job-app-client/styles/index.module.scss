@@ -10,7 +10,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 150px;
+
+  @media #{$media-l} {
+    margin-top: 70px;
+  }
+
+  @media #{$media-s} {
+    margin-top: 50px;
+  }
 }
 
 .LogoContainerLogo {
@@ -25,9 +33,14 @@
 
 .TaglineText {
   font-size: $font-xl;
-  margin-top: 50px;
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
+
+  @media #{$media-l} {
+    margin-top: 40px;
+    font-size: $font-l;
+  }
 }
 
 .Bold {
@@ -43,6 +56,18 @@
   border-radius: 10px;
   padding: 50px 100px;
   margin-top: 50px;
+
+  @media #{$media-l} {
+    padding: 40px 80px;
+  }
+
+  @media #{$media-s} {
+    padding: 40px 60px;
+  }
+
+  @media #{$media-xs} {
+    padding: 40px 40px;
+  }
 }
 
 .AuthInput {
@@ -55,6 +80,10 @@
   padding: 8px 20px;
   margin-bottom: 10px;
   min-width: 300px;
+
+  @media #{$media-s} {
+    min-width: 250px;
+  }
 }
 
 .AuthInput:focus {
