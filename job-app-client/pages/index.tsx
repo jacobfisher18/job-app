@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/index.module.scss';
+import styles from '../styles/pages/index.module.scss';
 import { lightBlueBG } from '../util/inline-styles';
 // @ts-ignore
 import Typewriter from 'typewriter-effect';
@@ -36,8 +36,8 @@ export default function Index() {
         <input className={styles.AuthInput} placeholder="Work Email"></input>
         <input className={styles.AuthInput} placeholder="Password" type="password"></input>
         <div className={styles.AuthSubmitButtonsContainer}>
-          <button className={[styles.AuthButton,styles.ButtonPrimary].join(' ')}>Sign Up</button>
-          <button className={[styles.AuthButton,styles.ButtonSecondary].join(' ')}>Log In</button>
+          <button className={[styles.AuthButton, styles.ButtonPrimary].join(' ')}>Sign Up</button>
+          <button className={[styles.AuthButton, styles.ButtonSecondary].join(' ')}>Log In</button>
         </div>
       </form>
     </div>

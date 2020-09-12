@@ -1,0 +1,22 @@
+@import 'variables.scss';
+
+// For a page that will have a sidebar and content
+.PageContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+// For a the content within a page that has a sidebar
+.ContentContainer {
+    background-color: $bg-light;
+    flex: 1;
+}
+
+.Bold {
+    font-family: 'brandon-med';
+}
+
+.Bolder {
+    font-family: 'brandon-bld';
+}

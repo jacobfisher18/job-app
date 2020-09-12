@@ -1,29 +1,8 @@
-import styles from '../styles/sidebar.module.scss';
+import Link from 'next/link';
+import styles from '../styles/components/sidebar.module.scss';
+import { sidebarItems } from '../util/pages';
 
-const sidebarItems = [
-    {
-        text: 'Home',
-        img_src: '/home-icon.png'
-    },
-    {
-        text: 'Jobs',
-        img_src: '/jobs-icon.png'
-    },
-    {
-        text: 'Profile',
-        img_src: '/profile-icon.png'
-    },
-    {
-        text: 'Applicants',
-        img_src: '/applicants-icon.png'
-    },
-    {
-        text: 'Settings',
-        img_src: '/settings-icon.png'
-    }
-]
-
-export default function Sidebar() {
+export default function Sidebar(props) {
   return (
     <div className={styles.SidebarContainer}>
         <img className={styles.SidebarAppLogo} src="/jaba-logo-white.png" alt="Jaba logo"/>
@@ -33,7 +12,11 @@ export default function Sidebar() {
                     return (
                         <div className={styles.SidebarItem} key={i}>
                             <img className={styles.SidebarIcon} src={item.img_src} alt={`${item.text} icon`}/>
-                            <p className={styles.SidebarText}>{item.text}</p>
+                            <Link href={item.link}>
+                                <p className={`${styles.SidebarText} ${item.page === props.activePage ? styles.Bolder : ""}`}>
+                                    {item.text}
+                                </p>
+                            </Link>
                         </div>
                     )
                 })
