@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.scss';
+import { lightBlueBG } from '../util/inline-styles';
 // @ts-ignore
 import Typewriter from 'typewriter-effect';
-
-const lightBlueBG = `body { background-color: #F8FAFD; }`
 
 const typewriterOptions = {
   strings: ['Product Designer.', 'Software Engineer.', 'HR Manager.', 'Data Scientist.', 'Account Manager.', 'DevOps Engineer.', 'UX Researcher.'],
@@ -22,7 +21,7 @@ export default function Index() {
         <style>{lightBlueBG}</style>
       </Head>
       <div className={styles.LogoContainer}>
-        <img className={styles.LogoContainerLogo} src="/jaba-logo.png" alt="Jaba logo"/>
+        <img className={styles.LogoContainerLogo} src="/jaba-logo-blue.png" alt="Jaba logo"/>
         <h1 className={styles.LogoContainerTitle}>Jaba</h1>
       </div>
       <h6 className={styles.TaglineText}>
