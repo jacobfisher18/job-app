@@ -1,0 +1,51 @@
+@import '../variables.scss';
+
+.JobPostListItemContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+    border-radius: 10px;
+    width: 650px;
+    padding: 30px 60px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.LeftContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.TitleText {
+    font-size: $font-m;
+    font-family: 'brandon-blk';
+}
+
+.SubtitleText {
+    font-size: $font-xs;
+    font-family: 'brandon-reg';
+    color: $grey;
+    margin-top: 5px;
+}
+
+.RightContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ApplicantsText {
+    font-size: $font-xs;
+    font-family: 'brandon-med';
+}
+
+.LinkImg {
+    height: 18px;
+    margin-left: 20px;
+}
+
+.LinkImg:hover {
+    cursor: pointer;
+}

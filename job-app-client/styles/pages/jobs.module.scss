@@ -1,1 +1,37 @@
+@import '../variables.scss';
 @import '../shared.scss';
+
+.JobPostsTitleText {
+    font-family: 'brandon-med';
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.NewJobPostButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary;
+    border-radius: 10px;
+    width: 650px;
+    padding: 20px;
+    margin-top: 80px;
+    transition: 0.2s;
+}
+
+.NewJobPostButton:Hover {
+    cursor: pointer;
+    background-color: $primary-darker;
+}
+
+.PlusIcon {
+    height: 30px;
+    margin-right: 20px;
+}
+
+.NewJobPostButtonText {
+    font-family: 'brandon-bld';
+    color: $white;
+    font-size: $font-m;
+}
