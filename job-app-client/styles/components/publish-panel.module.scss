@@ -1,0 +1,39 @@
+@import '../variables.scss';
+@import '../shared.scss';
+
+.Container {
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 50px 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PublishImg {
+    height: 80px;
+}
+
+.Container h2 {
+    font-family: 'brandon-blk';
+    color: $dark-grey;
+    margin-top: 20px;
+}
+
+.Container p {
+    font-family: 'brandon-reg';
+    color: $darkest-grey;
+    font-size: $font-m;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    letter-spacing: -0.14px;
+}
+
+.ButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -1,11 +1,13 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router'
 import styles from '../styles/pages/jobs.module.scss';
 import Sidebar from '../components/sidebar';
 import { lightBlueBG, nextDivFullHeight } from '../util/inline-styles';
 import { Page } from '../util/pages';
 import JobPostListItem from '../components/job-post-list-item';
-import IJobPostListItem from '../data/job-post-list-item';
+import IJobPostListItem from '../interfaces/job-post-list-item';
 import LogoutButton from '../components/logout-button';
+import BigAddButton from '../components/big-add-button';
 
 // TEMPORARY
 const jobPostsData: IJobPostListItem[] = [
@@ -36,40 +38,43 @@ const jobPostsData: IJobPostListItem[] = [
 ]
 
 export default function Jobs() {
-  return (
-    <div className={styles.PageContainer}>
-      <Head>
-        <title>Jaba</title>
-        <link rel="icon" href="/favicon.ico" />
-        <style>{lightBlueBG} {nextDivFullHeight}</style>
-      </Head>
-      <Sidebar activePage={Page.Jobs}/>
-      <div className={styles.ContentContainer}>
-          <LogoutButton />
-          <div className={styles.NewJobPostButton}>
-              <img className={styles.PlusIcon} src="/plus-icon-white.png"/>
-              <p className={styles.NewJobPostButtonText}>NEW JOB POST</p>
-          </div>
-          <h2 className={styles.JobPostsTitleText}>Active Job Posts</h2>
-          <div className={styles.JobPostsContainer}>
-                {
-                    jobPostsData.map((item, i) => {
-                        return (
-                            <JobPostListItem
-                                key={item.jobPostId}
-                                title={item.title}
-                                location={item.location}
-                                department={item.department}
-                                fullTime={item.fullTime}
-                                applicants={item.applicants}
-                                jobPostId={item.jobPostId}
-                            />
-                        )
-                    })
-                }
-                
+    const router = useRouter()
+
+    return (
+        <div className={styles.PageContainer}>
+            <Head>
+                <title>Jaba</title>
+                <link rel="icon" href="/favicon.ico" />
+                <style>{lightBlueBG} {nextDivFullHeight}</style>
+            </Head>
+            <Sidebar activePage={Page.Jobs} />
+            <div className={styles.MainContainer}>
+                <LogoutButton />
+                <div className={`${styles.ContentContainer} ${styles.JobsContentContainer}`}>
+                    <BigAddButton
+                        text="NEW JOB POST"
+                        action={() => {router.push("/new-job-post")}}
+                    />
+                    <h2 className={styles.JobPostsTitleText}>Active Job Posts</h2>
+                    <div className={styles.JobPostsContainer}>
+                        {
+                            jobPostsData.map((item, i) => {
+                                return (
+                                    <JobPostListItem
+                                        key={item.jobPostId}
+                                        title={item.title}
+                                        location={item.location}
+                                        department={item.department}
+                                        fullTime={item.fullTime}
+                                        applicants={item.applicants}
+                                        jobPostId={item.jobPostId}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </div>
-      </div>
-    </div>
-  )
+        </div>
+    )
 }

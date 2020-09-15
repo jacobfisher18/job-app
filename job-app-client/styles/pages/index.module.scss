@@ -68,25 +68,13 @@
 }
 
 .AuthInput {
-  background: $lightest-grey;
-  border: 1px solid $light-grey;
-  border-radius: 3px;
-  font-size: $font-xs;
-  color: $darkest-grey;
-  letter-spacing: -0.04px;
   padding: 8px 20px;
   margin-bottom: 10px;
   min-width: 300px;
-  font-family: 'brandon-reg';
 
   @media #{$media-s} {
     min-width: 250px;
   }
-}
-
-.AuthInput:focus {
-  outline: none;
-  border: 1px solid $primary;
 }
 
 .AuthFormTitleText {
@@ -106,39 +94,6 @@
 .AuthButton {
   width: 100px;
   height: 40px;
-  border: 0px;
   margin-right: 10px;
   margin-left: 10px;
-  border-radius: 100px;
-  font-family: 'brandon-med';
-  font-size: $font-xs;
-  letter-spacing: -0.1px;
-  transition: 0.2s;
-  box-sizing: border-box;
-}
-
-.AuthButton:hover {
-  cursor: pointer;
-}
-
-.ButtonPrimary {
-  background-color: $primary;
-  color: $white;
-}
-
-.ButtonPrimary:hover {
-  border: 2px solid $primary;
-  color: $primary;
-  background-color: $white;
-}
-
-.ButtonSecondary {
-  border: 2px solid $primary;
-  color: $primary;
-  background-color: $white;
-}
-
-.ButtonSecondary:hover {
-  background-color: $primary;
-  color: $white;
 }

@@ -1,18 +1,7 @@
 @import '../variables.scss';
 @import '../shared.scss';
 
-.JobsContentContainer {
-    padding-top: 100px;
-}
-
-.JobPostsTitleText {
-    font-family: 'brandon-med';
-    margin-top: 50px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.NewJobPostButton {
+.Container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,11 +9,10 @@
     background-color: $primary;
     border-radius: 10px;
     padding: 20px;
-    margin-top: 80px;
     transition: $button-transition;
 }
 
-.NewJobPostButton:Hover {
+.Container:Hover {
     cursor: pointer;
     background-color: $primary-darker;
 }
@@ -34,7 +22,7 @@
     margin-right: 20px;
 }
 
-.NewJobPostButtonText {
+.ButtonText {
     font-family: 'brandon-bld';
     color: $white;
     font-size: $font-m;

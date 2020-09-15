@@ -11,6 +11,7 @@ $darkest-grey: #222222;
 $black: #000000;
 
 // Font Size
+$font-xxs: 12px;
 $font-xs: 14px;
 $font-s: 16px;
 $font-m: 18px;
@@ -24,3 +25,6 @@ $media-s: "(max-width : 800px)";
 $media-m: "(max-width : 1200px)";
 $media-l: "(max-width : 1500px)";
 $media-xl: "(max-width : 5000px)";
+
+// Other
+$button-transition: background-color 0.2s, color 0.2s;

@@ -33,7 +33,7 @@ export default function Index() {
       
       <form className={styles.AuthForm}>
         <h3 className={styles.AuthFormTitleText}>Let’s get started</h3>
-        <input className={styles.AuthInput} placeholder="Work Email"></input>
+        <input className={styles.AuthInput} placeholder="Work Email" type="text"></input>
         <input className={styles.AuthInput} placeholder="Password" type="password"></input>
         <div className={styles.AuthSubmitButtonsContainer}>
           <button className={[styles.AuthButton, styles.ButtonPrimary].join(' ')}>Sign Up</button>

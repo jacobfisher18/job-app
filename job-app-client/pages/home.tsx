@@ -13,7 +13,7 @@ export default function Home() {
         <style>{lightBlueBG} {nextDivFullHeight}</style>
       </Head>
       <Sidebar activePage={Page.Home}/>
-      <div className={styles.ContentContainer}>
+      <div className={styles.MainContainer}>
       </div>
     </div>
   )

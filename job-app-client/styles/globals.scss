@@ -45,3 +45,60 @@ body {
   padding: 0;
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+input[type="text"], input[type="password"] {
+  background: $lightest-grey;
+  border: 1px solid $light-grey;
+  border-radius: 3px;
+  font-size: $font-xs;
+  color: $darkest-grey;
+  letter-spacing: -0.04px;
+  font-family: 'brandon-reg';
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  outline: none;
+  border: 1px solid $primary;
+}
+
+textarea {
+  background: $lightest-grey;
+  border: 1px solid $light-grey;
+  border-radius: 3px;
+  font-size: $font-xs;
+  color: $darkest-grey;
+  letter-spacing: -0.04px;
+  font-family: 'brandon-reg';
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid $primary;
+}
+
+button {
+  border: 0px;
+  border-radius: 100px;
+  font-family: 'brandon-bld';
+  font-size: $font-xs;
+  letter-spacing: -0.1px;
+  transition: $button-transition;
+  box-sizing: border-box;
+
+  background-color: $primary;
+  color: $white;
+}
+
+button:hover {
+  border: 2px solid $primary;
+  color: $primary;
+  background-color: $white;
+  cursor: pointer;
+}
+
+button:focus {outline:0;}

@@ -1,0 +1,47 @@
+@import '../variables.scss';
+@import '../shared.scss';
+
+.Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Container p {
+    margin-left: 20px;
+}
+
+.Checkbox {
+    height: 30px;
+    width: 30px;
+    border-radius: 2px;
+    border: 2px solid $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CheckboxOn {
+    background-color: $primary;
+}
+
+.CheckboxOn:hover {
+    background-color: $primary;
+}
+
+.CheckboxOff {
+    background-color: $white;
+}
+
+.CheckboxOff:hover {
+    background-color: $white;
+}
+
+.Checkbox img {
+    height: 15px;
+}
+
+.CheckboxStatic {
+    border: none;
+}

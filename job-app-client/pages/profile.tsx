@@ -13,7 +13,7 @@ export default function Profile() {
         <style>{lightBlueBG} {nextDivFullHeight}</style>
       </Head>
       <Sidebar activePage={Page.Profile}/>
-      <div className={styles.ContentContainer}>
+      <div className={styles.MainContainer}>
       </div>
     </div>
   )
