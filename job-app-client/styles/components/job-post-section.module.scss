@@ -1,0 +1,23 @@
+@import '../variables.scss';
+
+.Container {
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 50px 80px;
+    width: 100%;
+}
+
+.Title {
+    font-family: 'brandon-bld';
+    font-size: $font-l;
+    color: $dark-grey;
+    margin-bottom: 20px; 
+}
+
+.Text {
+    font-size: $font-s;
+    color: $dark-grey;
+    white-space: pre-wrap; // to display newlines  
+}

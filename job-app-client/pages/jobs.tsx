@@ -1,8 +1,7 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router'
 import styles from '../styles/pages/jobs.module.scss';
+import PageHead from '../components/functional/page-head';
 import Sidebar from '../components/sidebar';
-import { lightBlueBG, nextDivFullHeight } from '../util/inline-styles';
 import { Page } from '../util/pages';
 import JobPostListItem from '../components/job-post-list-item';
 import IJobPostListItem from '../interfaces/job-post-list-item';
@@ -42,11 +41,7 @@ export default function Jobs() {
 
     return (
         <div className={styles.PageContainer}>
-            <Head>
-                <title>Jaba</title>
-                <link rel="icon" href="/favicon.ico" />
-                <style>{lightBlueBG} {nextDivFullHeight}</style>
-            </Head>
+            <PageHead />
             <Sidebar activePage={Page.Jobs} />
             <div className={styles.MainContainer}>
                 <LogoutButton />

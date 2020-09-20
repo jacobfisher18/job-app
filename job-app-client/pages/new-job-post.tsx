@@ -1,8 +1,7 @@
-import Head from 'next/head';
 import { Component } from 'react';
 import styles from '../styles/pages/new-job-post.module.scss';
+import PageHead from '../components/functional/page-head';
 import Sidebar from '../components/sidebar';
-import { lightBlueBG, nextDivFullHeight } from '../util/inline-styles';
 import { Page } from '../util/pages';
 import LogoutButton from '../components/logout-button';
 import JobInfoForm from '../components/job-info-form';
@@ -151,9 +150,9 @@ export default class NewJobPost extends Component<MyProps, MyState> {
                 isEditing={item.isEditing}
                 flipIsEditing={() => this.flipJobInfoSectionIsEditing(index)}
                 sectionTitle={item.sectionTitle}
-                setSectionTitle={val => this.setJobInfoSectionProperty(index, "sectionTitle", val)}
+                setSectionTitle={(val: any) => this.setJobInfoSectionProperty(index, "sectionTitle", val)}
                 description={item.description}
-                setDescription={val => this.setJobInfoSectionProperty(index, "description", val)}
+                setDescription={(val: any) => this.setJobInfoSectionProperty(index, "description", val)}
                 delete={() => this.deleteJobInfoSection(index)}
               />
             )
@@ -327,11 +326,7 @@ export default class NewJobPost extends Component<MyProps, MyState> {
   render() {
     return (
       <div className={styles.PageContainer}>
-        <Head>
-          <title>Jaba</title>
-          <link rel="icon" href="/favicon.ico" />
-          <style>{lightBlueBG} {nextDivFullHeight}</style>
-        </Head>
+        <PageHead />
         <Sidebar activePage={Page.Jobs} />
         <div className={styles.MainContainer}>
           <LogoutButton />

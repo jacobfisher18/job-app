@@ -1,8 +1,7 @@
-import Head from 'next/head';
 import styles from '../styles/pages/index.module.scss';
-import { lightBlueBG } from '../util/inline-styles';
 // @ts-ignore
 import Typewriter from 'typewriter-effect';
+import PageHead from '../components/functional/page-head';
 
 const typewriterOptions = {
   strings: ['Product Designer.', 'Software Engineer.', 'HR Manager.', 'Data Scientist.', 'Account Manager.', 'DevOps Engineer.', 'UX Researcher.'],
@@ -15,11 +14,7 @@ const typewriterOptions = {
 export default function Index() {
   return (
     <div className={styles.IndexPageContainer}>
-      <Head>
-        <title>Jaba</title>
-        <link rel="icon" href="/favicon.ico" />
-        <style>{lightBlueBG}</style>
-      </Head>
+      <PageHead/>
       <div className={styles.LogoContainer}>
         <img className={styles.LogoContainerLogo} src="/jaba-logo-blue.png" alt="Jaba logo"/>
         <h1 className={styles.LogoContainerTitle}>Jaba</h1>
