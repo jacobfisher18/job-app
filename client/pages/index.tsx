@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 import PageHead from '../components/functional/page-head';
 
 const typewriterOptions = {
-  strings: ['Product Designer.', 'Software Engineer.', 'HR Manager.', 'Data Scientist.', 'Account Manager.', 'DevOps Engineer.', 'UX Researcher.'],
+  strings: ['Product Designer.', 'Software Engineer.', 'HR Manager.', 'Data Scientist.', 'Account Manager.', 'DevOps Engineer.', 'UX Researcher.', 'Marketing Director.'],
   autoStart: true,
   loop: true,
   delay: 120,

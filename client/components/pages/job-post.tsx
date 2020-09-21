@@ -65,9 +65,10 @@ export default function JobPost(props: MyProps) {
             <PageHead />
             <JobHeader />
             <div className={styles.ContentContainer}>
-                {dummySectionData.map(item => {
+                {dummySectionData.map((item, i) => {
                     return (
                         <JobPostSection
+                            key={i}
                             title={item.title}
                             text={item.text}
                         />
