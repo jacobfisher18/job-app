@@ -2,7 +2,11 @@ import Link from 'next/link';
 import styles from '../styles/components/sidebar.module.scss';
 import { Page, sidebarItems } from '../util/pages';
 
-export default function Sidebar(props: propTypes) {
+interface MyProps {
+    activePage: Page;
+}
+
+export default function Sidebar(props: MyProps) {
     return (
         <div className={styles.SidebarContainer}>
             <img className={styles.SidebarAppLogo} src="/jaba-logo-white.png" alt="Jaba logo" />
@@ -24,8 +28,4 @@ export default function Sidebar(props: propTypes) {
             </div>
         </div>
     )
-}
-
-type propTypes = {
-    activePage: Page
 }

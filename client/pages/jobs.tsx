@@ -1,46 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../styles/pages/jobs.module.scss';
 import PageHead from '../components/functional/page-head';
 import Sidebar from '../components/sidebar';
 import { Page } from '../util/pages';
 import JobPostListItem from '../components/job-post-list-item';
-import IJobPostListItem from '../interfaces/job-post-list-item';
 import LogoutButton from '../components/logout-button';
 import Dropdown from '../components/dropdown';
 import BigAddButton from '../components/big-add-button';
-import { createBlankJobPostForCompany } from '../api/job-post';
+import { getJobPostsForCompany, createBlankJobPostForCompany } from '../api/job-post';
 
-// TEMPORARY
-const jobPostsData: IJobPostListItem[] = [
-    {
-        title: 'Principle Software Engineer',
-        location: 'Culver City, CA',
-        department: 'Engineering',
-        fullTime: true,
-        applicants: 21,
-        jobPostId: '5431783'
-    },
-    {
-        title: 'Product Desiger',
-        location: 'Chicago, IL',
-        department: 'Design',
-        fullTime: true,
-        applicants: 12,
-        jobPostId: '3948571'
-    },
-    {
-        title: 'HR Manager',
-        location: 'Culver City, CA',
-        department: 'Human Resources',
-        fullTime: true,
-        applicants: 33,
-        jobPostId: '1957382'
-    }
-]
+// TODO: get this from some state store or cookie
+const companyInfo = {
+    id: 'm9qQQQFl8hVbuQGAxmVa',
+    name: 'Google'
+}
 
 export default function Jobs() {
     const router = useRouter()
+
+    const [jobPostsData, setJobPostsData] = useState(null);
 
     // Job post filters
     const [isLocationExpanded, setIsLocationExpanded] = useState(false);
@@ -49,6 +28,18 @@ export default function Jobs() {
     const [isStatusExpanded, setIsStatusExpanded] = useState(false);
 
     const [isNewJobPostLoading, setIsNewJobPostLoading] = useState(false);
+
+    useEffect(() => {
+        getJobPostsForCompany(companyInfo.id)
+            .then(res => {
+                console.log(res);
+                setJobPostsData(res);
+                this.setStateFromApiData(res);
+            })
+            .catch(err => {
+                // TODO: handle error
+            })
+    }, []);
 
     return (
         <div className={styles.PageContainer}>
@@ -62,9 +53,7 @@ export default function Jobs() {
                         loading={isNewJobPostLoading}
                         action={async () => {
                             setIsNewJobPostLoading(true);
-
-                            const company = 'Google'; // TODO: get this from some state store
-                            createBlankJobPostForCompany(company).then((id: string) => {
+                            createBlankJobPostForCompany(companyInfo.name, companyInfo.id).then((id: string) => {
                                 router.push(`/new-job-post/${id}`);
                                 setIsNewJobPostLoading(false);
                             }).catch(err => {
@@ -79,83 +68,83 @@ export default function Jobs() {
                             title="LOCATION"
                             options={[{
                                 title: "Culver City, CA",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "Chicago, IL",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "New York, NY",
-                                onClick: () => {}
+                                onClick: () => { }
                             }]}
                             expanded={isLocationExpanded}
-                            flipExpanded={() => { setIsLocationExpanded(!isLocationExpanded)}}
-                            setExpandedFalse={() => { setIsLocationExpanded(false)}}
+                            flipExpanded={() => { setIsLocationExpanded(!isLocationExpanded) }}
+                            setExpandedFalse={() => { setIsLocationExpanded(false) }}
                         />
                         <Dropdown
                             title="DEPARTMENT"
                             options={[{
                                 title: "ENGINEERING",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "HR",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "DESIGN",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "OPERATIONS",
-                                onClick: () => {}
+                                onClick: () => { }
                             }]}
                             expanded={isDepartmentExpanded}
-                            flipExpanded={() => { setIsDepartmentExpanded(!isDepartmentExpanded)}}
-                            setExpandedFalse={() => { setIsDepartmentExpanded(false)}}
+                            flipExpanded={() => { setIsDepartmentExpanded(!isDepartmentExpanded) }}
+                            setExpandedFalse={() => { setIsDepartmentExpanded(false) }}
                         />
                         <Dropdown
                             title="TIME"
                             options={[{
                                 title: "Full-Time",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "Part-Time",
-                                onClick: () => {}
+                                onClick: () => { }
                             }]}
                             expanded={isTimeExpanded}
-                            flipExpanded={() => { setIsTimeExpanded(!isTimeExpanded)}}
-                            setExpandedFalse={() => { setIsTimeExpanded(false)}}
+                            flipExpanded={() => { setIsTimeExpanded(!isTimeExpanded) }}
+                            setExpandedFalse={() => { setIsTimeExpanded(false) }}
                         />
                         <Dropdown
                             title="STATUS"
                             options={[{
                                 title: "Active",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "Draft",
-                                onClick: () => {}
+                                onClick: () => { }
                             }, {
                                 title: "Expired",
-                                onClick: () => {}
+                                onClick: () => { }
                             }]}
                             expanded={isStatusExpanded}
-                            flipExpanded={() => { setIsStatusExpanded(!isStatusExpanded)}}
-                            setExpandedFalse={() => { setIsStatusExpanded(false)}}
+                            flipExpanded={() => { setIsStatusExpanded(!isStatusExpanded) }}
+                            setExpandedFalse={() => { setIsStatusExpanded(false) }}
                         />
                     </div>
                     <h2 className={styles.JobPostsTitleText}>Engineering</h2>
                     <div className={styles.JobPostsContainer}>
                         {
-                            jobPostsData.map((item, i) => {
+                            jobPostsData ? jobPostsData.map(item => {
                                 return (
                                     <JobPostListItem
-                                        key={item.jobPostId}
-                                        title={item.title}
-                                        location={item.location}
-                                        department={item.department}
-                                        fullTime={item.fullTime}
-                                        applicants={item.applicants}
-                                        jobPostId={item.jobPostId}
+                                        key={item.id}
+                                        title={item.data.details.title}
+                                        location={item.data.details.location}
+                                        department={item.data.details.department}
+                                        fullTime={true}
+                                        applicants={23}
+                                        jobPostId={item.id}
                                     />
                                 )
-                            })
+                            }) : <p>loader?</p>
                         }
                     </div>
                 </div>

@@ -1,37 +1,32 @@
 import styles from '../styles/components/job-post-list-item.module.scss';
-import PropTypes from 'prop-types';
+import Badge from './badge';
+import { BadgeColor } from '../util/enums';
 
-export default function JobPostListItem(props) {
-    const subtitleText = () => {
-        return `${props.location} / ${props.department} / ${props.fullTime ? "FULL-TIME" : "PART-TIME"}`.toUpperCase();
-    }
+interface MyProps {
+    title: string;
+    applicants: number;
+    department: string;
+    fullTime: boolean;
+    jobPostId: string;
+    location: string;
+}
 
+export default function JobPostListItem(props: MyProps) {
     return (
         <div className={styles.JobPostListItemContainer}>
             <div className={styles.LeftContainer}>
                 <p className={styles.TitleText}>{props.title}</p>
                 <p className={styles.SubtitleText}>
-                    {subtitleText()} 
+                {props.location.toUpperCase()} &ensp;/ &ensp;{props.department.toUpperCase()} &ensp;/ &ensp;{props.fullTime ? "FULL-TIME" : "PART-TIME"}
                 </p>
             </div>
             <div className={styles.RightContainer}>
-                <p className={styles.ApplicantsText}>{props.applicants} applicants</p>
-                <img
-                    className={styles.LinkImg}
-                    src="/link-icon-grey.png"
-                    onClick={() => {console.log(`navigate to job post id ${props.jobPostId}`)}}
-                    alt="Job post link"
+                <Badge
+                    text="ACTIVE"
+                    color={BadgeColor.Blue}
+                    img_src="/check-blue.png"
                 />
             </div>
         </div>
     )
 }
-
-JobPostListItem.propTypes = {
-    title: PropTypes.string,
-    applicants: PropTypes.number,
-    department: PropTypes.string,
-    fullTime: PropTypes.bool,
-    jobPostId: PropTypes.string,
-    location: PropTypes.string
-};

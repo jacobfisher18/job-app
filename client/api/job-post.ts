@@ -1,7 +1,8 @@
-export const createBlankJobPostForCompany = (company: string): Promise<string> => {
+export const createBlankJobPostForCompany = (company: string, companyId: string): Promise<string> => {
     const body = JSON.stringify({
         details: {
-            company
+            company,
+            company_id: companyId
         }
     });
 
@@ -37,6 +38,30 @@ export const getJobPost = (postId: string | string[]): Promise<any> => {
     };
 
     const path = `http://localhost:4000/posts/${postId}`;
+
+    return new Promise((res, rej) => {
+        fetch(path, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const json = JSON.parse(result);
+                console.log(json);
+                res(json.data);
+            })
+            .catch(error => {
+                rej(error);
+            });
+    });
+}
+
+export const getJobPostsForCompany = (companyId: string): Promise<any> => {
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    const path = `http://localhost:4000/posts/company/${companyId}`;
 
     return new Promise((res, rej) => {
         fetch(path, requestOptions)

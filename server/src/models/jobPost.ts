@@ -7,6 +7,7 @@ interface JobPostStatus {
 
 interface JobPostDetails {
     company?: string;
+    company_id?: string;
     company_logo_src?: string;
     title?: string;
     location?: string;
@@ -58,6 +59,7 @@ export const toJobPost = (input: any): JobPost => {
         },
         details: {
             company: input.details != undefined && input.details.company != undefined ? input.details.company : '',
+            company_id: input.details != undefined && input.details.company_id != undefined ? input.details.company_id : '',
             company_logo_src: input.details != undefined && input.details.company_logo_src != undefined ? input.details.company_logo_src : '',
             title: input.details != undefined && input.details.title != undefined ? input.details.title : '',
             location: input.details != undefined && input.details.location != undefined ? input.details.location : '',
@@ -98,6 +100,7 @@ export const toJobPostPatch = (input: any): JobPost => {
 
     if (input.details !== undefined) {
         if (input.details.company !== undefined) result["details.company"] = input.details.company;
+        if (input.details.company_id !== undefined) result["details.company_id"] = input.details.company_id;
         if (input.details.company_logo_src !== undefined) result["details.company_logo_src"] = input.details.company_logo_src;
         if (input.details.title !== undefined) result["details.title"] = input.details.title;
         if (input.details.location !== undefined) result["details.location"] = input.details.location;
@@ -145,6 +148,9 @@ export const jobPostValidationRules = [
     body('details.company')
         .optional()
         .isString().withMessage("details.company must be a string."),
+    body('details.company_id')
+        .optional()
+        .isString().withMessage("details.company_id must be a string."),
     body('details.company_logo_src')
         .optional()
         .isString().withMessage("details.company_logo_src must be a string."),

@@ -1,7 +1,12 @@
 import styles from '../styles/components/form-form.module.scss';
 import SaveEditButton from '../components/save-edit-button';
 import Checkbox from '../components/checkbox';
-import ICheckboxProp from '../interfaces/checkbox-prop';
+
+interface ICheckboxProp {
+    title: string,
+    enabled: boolean,
+    flipFunction: Function
+}
 
 interface MyProps {
     sectionTitle: string;

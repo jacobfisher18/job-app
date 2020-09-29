@@ -16,3 +16,9 @@ export enum ButtonStyle {
     Secondary,
     Tertiary
 }
+
+export enum BadgeColor {
+    Blue,
+    Yellow,
+    Grey
+}

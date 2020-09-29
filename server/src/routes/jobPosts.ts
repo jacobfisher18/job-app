@@ -85,4 +85,42 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
     });
 });
 
+// Get all job posts for a specific company id
+router.get('/company/:id', async (req: express.Request, res: express.Response) => {
+    const id = req.params.id;
+
+    const postsRef = getDB().collection(DBCollection.JobPosts);
+    let snapshot: FirebaseFirestore.QuerySnapshot<FirebaseFirestore.DocumentData>;
+    let data: FirebaseFirestore.DocumentData[];
+
+    try {
+        snapshot = await postsRef.where('details.company_id', '==', id).get();
+
+        if (snapshot.empty) {
+            return res.status(404).send({
+                message: 'No matching documents'
+            });
+        }
+
+        data = snapshot.docs.map(item => {
+            return {
+                id: item.id,
+                data: item.data()
+            }
+        });
+
+    } catch(error) {
+        const responseCode = error.code === 5 ? 404 : 500;
+
+        return res.status(responseCode).send({
+            error
+        });
+    }
+
+    return res.send({
+        message: "Documents retrieved.",
+        data
+    });
+});
+
 export default router;
