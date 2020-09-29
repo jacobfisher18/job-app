@@ -46,9 +46,7 @@ interface MyProps {
                     </div>}
             </div>
         );
-    }
-
-    
+    }    
 }
 
 export default onClickOutside(Dropdown);

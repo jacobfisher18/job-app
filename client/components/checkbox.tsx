@@ -10,7 +10,7 @@ export default function Checkbox(props) {
                     onClick={e => { e.preventDefault(); props.flip() }}>
                     <img
                         src="/check-white.png"
-                        />
+                    />
                 </button>
                 <p>{props.title}</p>
             </div>
@@ -25,7 +25,7 @@ export default function Checkbox(props) {
                     onClick={e => { e.preventDefault(); }}>
                     <img
                         src="/check-blue.png"
-                        />
+                    />
                 </div>
                 <p>{props.title}</p>
             </div>

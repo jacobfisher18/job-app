@@ -77,12 +77,8 @@ class EditableJobPost extends Component<MyProps, MyState> {
     }
 
     componentDidMount() {
-        console.log("componentDidMount started")
-        console.log('this.props.postId', this.props.postId)
-
         getJobPost(this.props.postId)
             .then(res => {
-                // console.log(res);
                 this.setStateFromApiData(res);
             })
             .catch(err => {
