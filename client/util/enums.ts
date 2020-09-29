@@ -1,4 +1,4 @@
-export enum NewJobPostSection {
+export enum EditableJobPostSection {
     PostDetails,
     JobInfo,
     Forms,

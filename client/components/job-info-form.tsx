@@ -5,10 +5,11 @@ import DeleteButton from '../components/delete-button';
 interface MyProps {
     isEditing: boolean,
     flipIsEditing: Function,
-    sectionTitle: string,
-    setSectionTitle: Function,
-    description: string,
-    setDescription: Function,
+    saveAction: Function,
+    title: string,
+    setTitle: Function,
+    text: string,
+    setText: Function,
     delete: Function
 }
 
@@ -18,14 +19,14 @@ export default function JobInfoForm(props: MyProps) {
         return (
             <div className={styles.EditModeContainer}>
                 <input
-                    value={props.sectionTitle}
-                    onChange={e => { props.setSectionTitle(e.target.value) }}
+                    value={props.title}
+                    onChange={e => { props.setTitle(e.target.value) }}
                     className={styles.EditModeTitle}
                     placeholder='Add a section title (i.e. "About the job")'
                     type="text" />
                 <textarea
-                    value={props.description}
-                    onChange={e => { props.setDescription(e.target.value) }}
+                    value={props.text}
+                    onChange={e => { props.setText(e.target.value) }}
                     placeholder='Add a description'
                     className={styles.EditModeDescription} />
             </div>
@@ -35,8 +36,8 @@ export default function JobInfoForm(props: MyProps) {
     const renderStaticMode = () => {
         return (
             <div>
-                <h3 className={styles.StaticModeTitle}>{props.sectionTitle}</h3>
-                <p className={styles.StaticModeDescription}>{props.description}</p>
+                <h3 className={styles.StaticModeTitle}>{props.title}</h3>
+                <p className={styles.StaticModeDescription}>{props.text}</p>
             </div>
         );
     }
@@ -46,12 +47,13 @@ export default function JobInfoForm(props: MyProps) {
             {props.isEditing ? renderEditMode() : renderStaticMode()}
             <div className={styles.FormButtonContainer}>
                 {props.isEditing && <DeleteButton
-                    action={() => props.delete()}
+                    action={() => { props.delete(); /* TODO: deletes don't currently save anything */} }
                 />}
                 <div className={styles.Spacer1}/>
                 <SaveEditButton
                     isEditing={props.isEditing}
-                    action={() => props.flipIsEditing()}
+                    saveAction = {() => { props.saveAction() }}
+                    flipIsEditing = {() => { props.flipIsEditing() }}
                 />
             </div>
         </div>

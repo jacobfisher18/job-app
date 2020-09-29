@@ -8,6 +8,7 @@ interface MyProps {
     checkboxes: ICheckboxProp[];
     isEditing: boolean;
     flipIsEditing: Function;
+    saveAction: Function;
 }
 
 // A form... about forms
@@ -32,7 +33,8 @@ export default function FormForm(props: MyProps) {
             <div className={styles.FormButtonContainer}>
                 <SaveEditButton
                     isEditing={props.isEditing}
-                    action={() => props.flipIsEditing()}
+                    saveAction = {() => { props.saveAction() }}
+                    flipIsEditing = {() => { props.flipIsEditing() }}
                 />
             </div>
         </div>

@@ -12,7 +12,7 @@ export default function PublishPanel(props) {
             <div className={styles.ButtonsContainer}>
                 <StyledButton
                     text="PREVIEW JOB POST"
-                    action={() => {}}
+                    action={() => { props.previewClicked() }}
                     size={ButtonSize.S}
                     style={ButtonStyle.Tertiary}
                     leftIcon="/link-out-icon-white.png"
@@ -21,7 +21,7 @@ export default function PublishPanel(props) {
                 <div className={styles.Spacer1}/>
                 <StyledButton
                     text="PUBLISH"
-                    action={() => {}}
+                    action={() => { props.publishClicked() }}
                     size={ButtonSize.S}
                     style={ButtonStyle.Primary}
                     rounded

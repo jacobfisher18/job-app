@@ -2,10 +2,6 @@
 @import '../shared.scss';
 
 .Container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     background-color: $primary;
     border-radius: 10px;
     padding: 20px;
@@ -15,6 +11,14 @@
 .Container:Hover {
     cursor: pointer;
     background-color: $primary-darker;
+}
+
+.ContainerContent {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .PlusIcon {

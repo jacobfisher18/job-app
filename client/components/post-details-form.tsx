@@ -26,7 +26,8 @@ export default function PostDetailsForm(props) {
             <div className={styles.FormButtonContainer}>
                 <SaveEditButton
                     isEditing={props.isEditing}
-                    action={props.flipIsEditing}
+                    saveAction = {() => { props.save() }}
+                    flipIsEditing = {() => { props.flipIsEditing() }}
                 />
             </div>
         </form>

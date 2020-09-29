@@ -12,30 +12,8 @@
     text-align: center;
 }
 
-.NewJobPostButton {
+.DropdownsContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: $primary;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 80px;
-    transition: $button-transition;
-}
-
-.NewJobPostButton:Hover {
-    cursor: pointer;
-    background-color: $primary-darker;
-}
-
-.PlusIcon {
-    height: 30px;
-    margin-right: 20px;
-}
-
-.NewJobPostButtonText {
-    font-family: 'brandon-bld';
-    color: $white;
-    font-size: $font-m;
+    margin-top: 50px;
 }
