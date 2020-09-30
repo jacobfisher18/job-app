@@ -1,4 +1,4 @@
-import PageHead from '../functional/page-head';
+import PageHead from '../organisms/page-head';
 
 interface MyProps {
     postId: string | string[] // TODO: why would the router return a string aray for a path param?

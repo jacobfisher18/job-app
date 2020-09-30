@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import PageHead from '../../../components/functional/page-head';
+import PageHead from '../../../components/organisms/page-head';
 
-export default function PreviewApply() {
+export default function PreviewPostIdApply() {
     const router = useRouter();
     const { post_id } = router.query;
 

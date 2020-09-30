@@ -1,0 +1,45 @@
+@import '../../variables.scss';
+@import '../../shared.scss';
+
+.Container {
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 50px 80px;
+    width: 100%;
+}
+
+.StaticModeTitle {
+    font-family: 'brandon-med';
+    font-size: $font-m;
+    color: $dark-grey;
+    margin-bottom: 20px;
+}
+
+.StaticModeDescription {
+    font-size: $font-s;
+    color: $dark-grey;
+    white-space: pre-wrap; // to display newlines
+}
+
+.EditModeContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.EditModeTitle {
+    margin-bottom: 20px;
+    padding: 8px 20px;
+}
+
+.EditModeDescription {
+    padding: 12px 20px;
+    min-height: 200px;
+}
+
+.FormButtonContainer {
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../styles/pages/jobs.module.scss';
-import PageHead from '../components/functional/page-head';
-import Sidebar from '../components/sidebar';
+import PageHead from '../components/organisms/page-head';
+import Sidebar from '../components/organisms/sidebar';
 import { Page } from '../util/pages';
-import JobPostListItem from '../components/job-post-list-item';
-import LogoutButton from '../components/logout-button';
-import Dropdown from '../components/dropdown';
-import BigAddButton from '../components/big-add-button';
+import JobPostListItem from '../components/molecules/job-post-list-item';
+import LogoutButton from '../components/atoms/logout-button';
+import Dropdown from '../components/atoms/dropdown';
+import BigAddButton from '../components/atoms/big-add-button';
 import { getJobPostsForCompany, createBlankJobPostForCompany } from '../api/job-post';
 
 // TODO: get this from some state store or cookie
@@ -139,9 +139,10 @@ export default function Jobs() {
                                         title={item.data.details.title}
                                         location={item.data.details.location}
                                         department={item.data.details.department}
-                                        fullTime={true}
+                                        isFullTime={true}
                                         applicants={23}
                                         jobPostId={item.id}
+                                        onClick={() => { router.push(`/posts/${item.id}`); }}
                                     />
                                 )
                             }) : <p>loader?</p>

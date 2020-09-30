@@ -1,0 +1,122 @@
+@import '../../variables.scss';
+
+/* Core Button Styles */
+.Container {
+    letter-spacing: 0.40px;
+    font-family: 'brandon-bld';
+    transition: $button-transition;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Container:hover {
+    cursor: pointer;
+}
+
+/* Button Styles */
+.Primary {
+    background-color: $white;
+    border: 2px solid $primary;
+    color: $primary;
+}
+
+.Primary:hover {
+    border: 2px solid $primary;
+    background-color: $primary;
+    color: $white;
+}
+
+.Secondary {
+    border: 2px solid $primary;
+    background-color: $primary;
+    color: $white;
+}
+
+.Secondary:hover {
+    background-color: $white;
+    border: 2px solid $primary;
+    color: $primary;
+}
+
+.Tertiary {
+    border: 2px solid $primary;
+    background-color: $primary;
+    color: $white;
+}
+
+.Tertiary:hover {
+    border: 2px solid $primary-darker;
+    background-color: $primary-darker;
+    color: $white;
+}
+
+.Delete {
+    border: 2px solid $dark-grey;
+    background-color: $white;
+    color: $dark-grey;
+}
+
+.Delete:hover {
+    border: 2px solid $dark-grey;
+    background-color: $dark-grey;
+    color: $white;
+}
+
+/* Rounded Attribute */
+.Rounded {
+    border-radius: 100px;
+}
+
+/* Sizes */
+
+.SizeS {
+    padding: 5px 20px;
+    font-size: $font-xxs;
+}
+
+.SizeS img {
+    height: 15px;
+}
+
+.SizeS .LeftIcon {
+    margin-right: 10px;
+}
+
+.SizeS .RightIcon {
+    margin-left: 10px;
+}
+
+.SizeM {
+    font-size: $font-s;
+    padding: 10px 20px;
+}
+
+.SizeM img {
+    height: 20px;
+}
+
+.SizeM .LeftIcon {
+    margin-right: 20px;
+}
+
+.SizeM .RightIcon {
+    margin-left: 20px;
+}
+
+.SizeL {
+    font-size: $font-m;
+    padding: 10px 40px;
+}
+
+.SizeL img {
+    height: 25px;
+}
+
+.SizeL .LeftIcon {
+    margin-right: 25px;
+}
+
+.SizeL .RightIcon {
+    margin-left: 25px;
+}

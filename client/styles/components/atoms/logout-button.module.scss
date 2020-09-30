@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.Container {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Img {
+    height: 15px;
+    margin-right: 10px;
+}
+
+.Text {
+    font-size: $font-s;
+    color: $primary;
+    font-family: 'brandon-bld';
+}
+
+.Container:hover {
+    cursor: pointer;
+}

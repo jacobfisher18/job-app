@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+@import '../../shared.scss';
+
+.Container {
+    background-color: $primary;
+    border-radius: 10px;
+    padding: 20px;
+    transition: $button-transition;
+}
+
+.Container:Hover {
+    cursor: pointer;
+    background-color: $primary-darker;
+}
+
+.ContainerContent {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.PlusIcon {
+    height: 30px;
+    margin-right: 20px;
+}
+
+.ButtonText {
+    font-family: 'brandon-bld';
+    color: $white;
+    font-size: $font-m;
+}

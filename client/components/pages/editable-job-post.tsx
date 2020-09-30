@@ -1,52 +1,52 @@
 import { Component } from 'react';
 import { withRouter, SingletonRouter } from 'next/router';
 import styles from '../../styles/pages/new-job-post.module.scss';
-import PageHead from '../../components/functional/page-head';
-import Sidebar from '../sidebar';
+import PageHead from '../organisms/page-head';
+import Sidebar from '../organisms/sidebar';
 import { Page } from '../../util/pages';
-import LogoutButton from '../../components/logout-button';
-import JobInfoForm from '../../components/job-info-form';
-import PostDetailsForm from '../../components/post-details-form';
-import BigAddButton from '../../components/big-add-button';
-import StyledButton from '../../components/styled-button';
-import FormForm from '../../components/form-form';
-import PublishPanel from '../../components/publish-panel';
-import { EditableJobPostSection, ButtonStyle, ButtonSize } from '../../util/enums';
-import PrevNextNav from '../../components/prev-next-nav';
+import LogoutButton from '../atoms/logout-button';
+import JobInfoForm from '../molecules/job-info-form';
+import PostDetailsForm from '../molecules/post-details-form';
+import BigAddButton from '../atoms/big-add-button';
+import StyledButton, { ButtonStyle, ButtonSize } from '../atoms/styled-button';
+import FormForm from '../molecules/form-form';
+import PublishPanel from '../molecules/publish-panel';
+import { EditableJobPostSection } from '../../util/enums';
+import PrevNextNav from '../molecules/prev-next-nav';
 import { getJobPost, patchJobPost } from '../../api/job-post';
 
 interface JobInfoSectionState {
-    isEditing: boolean,
-    title: string,
-    text: string
+    isEditing: boolean;
+    title: string;
+    text: string;
 }
 
 interface MyProps {
-    postId: string | string[]
-    router: SingletonRouter,
+    postId: string | string[];
+    router: SingletonRouter;
 }
 
 interface MyState {
-    activeSection: EditableJobPostSection,
-    isEditingPostDetailsForm: boolean,
-    isEditingApplicantInfoForm: boolean,
-    isEditingLinksForm: boolean,
-    isEditingOtherSectionsForm: boolean,
-    positionTitle: string,
-    location: string,
-    department: string,
-    jobInfoSections: Array<JobInfoSectionState>,
-    enableName: boolean,
-    enableEmail: boolean,
-    enablePhoneNumber: boolean,
-    enableResume: boolean,
-    enableCoverLetter: boolean,
-    enableLinkedIn: boolean,
-    enablePortfolio: boolean,
-    enableGitHub: boolean,
-    enableTwitter: boolean,
-    enableWorkEligibility: boolean,
-    enableEEO: boolean
+    activeSection: EditableJobPostSection;
+    isEditingPostDetailsForm: boolean;
+    isEditingApplicantInfoForm: boolean;
+    isEditingLinksForm: boolean;
+    isEditingOtherSectionsForm: boolean;
+    positionTitle: string;
+    location: string;
+    department: string;
+    jobInfoSections: Array<JobInfoSectionState>;
+    enableName: boolean;
+    enableEmail: boolean;
+    enablePhoneNumber: boolean;
+    enableResume: boolean;
+    enableCoverLetter: boolean;
+    enableLinkedIn: boolean;
+    enablePortfolio: boolean;
+    enableGitHub: boolean;
+    enableTwitter: boolean;
+    enableWorkEligibility: boolean;
+    enableEEO: boolean;
 }
 
 class EditableJobPost extends Component<MyProps, MyState> {

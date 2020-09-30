@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+
+.Container {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 12px;
+}
+
+.Container p {
+    font-family: 'brandon-med';
+    font-size: $font-xxs;
+    color: #565656;
+    letter-spacing: -0.05px;
+}
+
+.Container img {
+    height: 14px;
+    margin-left: 10px;
+}
+
+.Blue {
+    background-color: $light-blue;
+    border: 1px solid $dark-blue;
+
+}
+
+.Blue p {
+    color: $dark-blue;
+}

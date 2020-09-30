@@ -1,10 +1,9 @@
 import styles from '../../styles/components/pages/job-post.module.scss';
-import PageHead from '../functional/page-head';
-import JobHeader from '../job-header';
-import JobPostSection from '../job-post-section';
-import StyledButton from '../styled-button'
-import Footer from '../footer';
-import { ButtonSize, ButtonStyle } from '../../util/enums';
+import PageHead from '../organisms/page-head';
+import JobHeader from '../organisms/job-header';
+import JobPostSection from '../molecules/job-post-section';
+import StyledButton, { ButtonSize, ButtonStyle } from '../atoms/styled-button'
+import Footer from '../organisms/footer';
 
 interface MyProps {
     postId: string | string[] // TODO: why would the router return a string aray for a path param?
@@ -55,15 +54,17 @@ const dummySectionData = [
     }
 ]
 
-const dummyHeaderData = {
-    
-}
-
 export default function JobPost(props: MyProps) {
     return (
         <div className={styles.Container}>
             <PageHead />
-            <JobHeader />
+            <JobHeader
+                company="Google"
+                title="Principle Software Engineer"
+                location="Culver City, CA"
+                department="Engineering"
+                isFullTime={true}
+            />
             <div className={styles.ContentContainer}>
                 {dummySectionData.map((item, i) => {
                     return (

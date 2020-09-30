@@ -1,0 +1,57 @@
+@import '../../variables.scss';
+@import '../../shared.scss';
+
+.Container {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.ContentContainer {
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.CompanyLogo {
+    width: 80px;
+    margin-right: 40px;
+}
+
+.DetailsContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.DetailsContainer h2 {
+    font-family: 'brandon-bld';
+    font-size: $font-l;
+    color: $dark-grey;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.DetailsContainer h3 {
+    font-family: 'brandon-med';
+    font-size: $font-s;
+    color: $dark-grey;
+    letter-spacing: 0.4px;
+}
+
+.DetailsContainer h4 {
+    font-family: 'brandon-light';
+    font-size: $font-xs;
+    color: $dark-grey;
+    letter-spacing: 0.4px;
+}
+
+.ButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

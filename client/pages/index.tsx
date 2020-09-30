@@ -1,7 +1,7 @@
 import styles from '../styles/pages/index.module.scss';
 // @ts-ignore
 import Typewriter from 'typewriter-effect';
-import PageHead from '../components/functional/page-head';
+import PageHead from '../components/organisms/page-head';
 
 const typewriterOptions = {
   strings: ['Product Designer.', 'Software Engineer.', 'HR Manager.', 'Data Scientist.', 'Account Manager.', 'DevOps Engineer.', 'UX Researcher.', 'Marketing Director.'],

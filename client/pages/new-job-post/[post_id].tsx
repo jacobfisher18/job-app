@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import EditableJobPost from '../../components/pages/editable-job-post';
 
-function Post() {
+function NewJobPostPostId() {
     const router = useRouter();
     const { post_id } = router.query;
 
@@ -13,8 +13,8 @@ function Post() {
 }
 
 // Hack to make sure we finish the post_id query before rendering the component
-Post.getInitialProps = async () => {
+NewJobPostPostId.getInitialProps = async () => {
     return {}
 }
 
-export default Post;
+export default NewJobPostPostId;

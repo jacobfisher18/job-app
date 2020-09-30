@@ -4,21 +4,3 @@ export enum EditableJobPostSection {
     Forms,
     Publish
 }
-
-export enum ButtonSize {
-    S,
-    M,
-    L
-}
-
-export enum ButtonStyle {
-    Primary,
-    Secondary,
-    Tertiary
-}
-
-export enum BadgeColor {
-    Blue,
-    Yellow,
-    Grey
-}

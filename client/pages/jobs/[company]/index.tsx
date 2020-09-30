@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
-import PageHead from '../../../components/functional/page-head';
+import PageHead from '../../../components/organisms/page-head';
 
-export default function Company() {
-
+export default function JobsCompany() {
     const router = useRouter();
     const { company } = router.query;
 
