@@ -133,8 +133,6 @@ export const toJobPostPatch = (input: any): JobPost => {
         if (input.otherSections.enable_eeo !== undefined) result["otherSections.enable_eeo"] = input.otherSections.enable_eeo;
     }
 
-    console.log('result', result);
-
     return result;
 }
 

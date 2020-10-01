@@ -58,7 +58,6 @@ export default function Jobs() {
                             }).catch(err => {
                                 setIsNewJobPostLoading(false);
                                 // TODO: handle error
-                                console.log(err);
                             })
                         }}
                     />

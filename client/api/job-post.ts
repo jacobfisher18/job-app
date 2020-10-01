@@ -44,7 +44,6 @@ export const getJobPost = (postId: string | string[]): Promise<any> => {
             .then(response => response.text())
             .then(result => {
                 const json = JSON.parse(result);
-                console.log(json);
                 res(json.data);
             })
             .catch(error => {
@@ -68,7 +67,6 @@ export const deleteJobPost = (postId: string | string[]): Promise<any> => {
             .then(response => response.text())
             .then(result => {
                 const json = JSON.parse(result);
-                console.log(json);
                 res(json.data);
             })
             .catch(error => {
@@ -92,7 +90,6 @@ export const getJobPostsForCompany = (companyId: string): Promise<any> => {
             .then(response => response.text())
             .then(result => {
                 const json = JSON.parse(result);
-                console.log(json);
                 res(json.data);
             })
             .catch(error => {

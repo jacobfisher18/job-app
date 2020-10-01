@@ -6,7 +6,7 @@ export default function LogoutButton() {
             <img
                 className={styles.Img}
                 src="/logout-icon-blue.png"
-                onClick={() => {console.log("test")}}
+                onClick={() => { }}
                 alt="Logout"
             />
             <p className={styles.Text}>Logout</p>

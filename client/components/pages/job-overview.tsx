@@ -9,11 +9,9 @@ interface MyProps {
 
 export default function JobOverview(props: MyProps) {
 
-    console.log("props.data", props.data);
-
     const renderSection = () => {
         return (
-            <div>Section</div>
+            <div></div>
         )
     }
 
