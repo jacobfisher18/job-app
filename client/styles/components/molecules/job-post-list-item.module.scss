@@ -6,26 +6,33 @@
     background-color: $white;
     box-shadow: 0 2px 4px 0 rgba(224,224,224,0.50);
     border-radius: 10px;
-    padding: 25px 50px;
+    padding: 25px 60px;
     justify-content: space-between;
     margin-bottom: 20px;
     transition: 0.2s;
 }
 
-.JobPostListItemContainer:hover {
-    cursor: pointer;
-    box-shadow: 0 4px 10px 0 $lightish-grey;
-}
+// .JobPostListItemContainer:hover {
+//     cursor: pointer;
+//     box-shadow: 0 4px 10px 0 $lightish-grey;
+// }
 
 .LeftContainer {
     display: flex;
     flex-direction: column;
 }
 
+.TitleTextContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .TitleText {
     font-size: $font-m;
     color: $darkest-grey;
     font-family: 'brandon-blk';
+    margin-right: 12px;
 }
 
 .SubtitleText {

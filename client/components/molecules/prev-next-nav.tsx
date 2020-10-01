@@ -1,6 +1,6 @@
 import styles from '../../styles/components/molecules/prev-next-nav.module.scss';
 import StyledButton, {ButtonSize, ButtonStyle } from '../atoms/styled-button';
-import { EditableJobPostSection} from '../../util/enums';
+import { EditableJobPostSection} from '../pages/editable-job-post';
 
 interface MyProps {
     currSection: EditableJobPostSection,

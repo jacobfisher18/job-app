@@ -12,8 +12,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 10px 20px;
-    margin-right: 25px;
+    padding: 8px 18px;
 }
 
 .DropdownBox:hover {
@@ -45,6 +44,7 @@
 .DropdownContent p {
     padding: 10px 20px;
     font-size: $font-xs;
+    white-space: nowrap;
 }
 
 .DropdownContent p:hover {

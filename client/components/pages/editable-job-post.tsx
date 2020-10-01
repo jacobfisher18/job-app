@@ -1,9 +1,8 @@
 import { Component } from 'react';
 import { withRouter, SingletonRouter } from 'next/router';
-import styles from '../../styles/pages/new-job-post.module.scss';
+import styles from '../../styles/components/pages/editable-job-post.module.scss';
 import PageHead from '../organisms/page-head';
-import Sidebar from '../organisms/sidebar';
-import { Page } from '../../util/pages';
+import Sidebar, { Page } from '../organisms/sidebar';
 import LogoutButton from '../atoms/logout-button';
 import JobInfoForm from '../molecules/job-info-form';
 import PostDetailsForm from '../molecules/post-details-form';
@@ -11,9 +10,16 @@ import BigAddButton from '../atoms/big-add-button';
 import StyledButton, { ButtonStyle, ButtonSize } from '../atoms/styled-button';
 import FormForm from '../molecules/form-form';
 import PublishPanel from '../molecules/publish-panel';
-import { EditableJobPostSection } from '../../util/enums';
 import PrevNextNav from '../molecules/prev-next-nav';
 import { getJobPost, patchJobPost } from '../../api/job-post';
+import NavHeader from '../organisms/nav-header';
+
+export enum EditableJobPostSection {
+    PostDetails,
+    JobInfo,
+    Forms,
+    Publish
+}
 
 interface JobInfoSectionState {
     isEditing: boolean;
@@ -137,7 +143,7 @@ class EditableJobPost extends Component<MyProps, MyState> {
                 enable_resume: this.state.enableResume
             }
         })
-            .then(() => {})
+            .then(() => { })
             .catch(err => {
                 // TODO: handle error
             })
@@ -152,7 +158,7 @@ class EditableJobPost extends Component<MyProps, MyState> {
                 enable_twitter: this.state.enableTwitter
             }
         })
-            .then(() => {})
+            .then(() => { })
             .catch(err => {
                 // TODO: handle error
             })
@@ -165,7 +171,7 @@ class EditableJobPost extends Component<MyProps, MyState> {
                 enable_work_eligibility: this.state.enableWorkEligibility
             }
         })
-            .then(() => {})
+            .then(() => { })
             .catch(err => {
                 // TODO: handle error
             })
@@ -181,7 +187,7 @@ class EditableJobPost extends Component<MyProps, MyState> {
                 }
             })
         })
-            .then(() => {})
+            .then(() => { })
             .catch(err => {
                 // TODO: handle error
             })
@@ -401,33 +407,23 @@ class EditableJobPost extends Component<MyProps, MyState> {
         window.open(`/preview/${this.props.postId}`);
     }
 
-    renderHeader() {
+    render() {
         return (
-            <div className={styles.HeaderContainer}>
-                <div className={styles.HeaderContentContainer}>
-                    <div className={styles.HeaderLeft}>
-                        <h1 className={styles.PageTitle}>New Job Post</h1>
-                        <div className={styles.NavContainer}>
-                            <p
-                                className={`${styles.NavItem} ${this.state.activeSection == EditableJobPostSection.PostDetails && styles.ActiveNavItem}`}
-                                onClick={() => { this.setSection(EditableJobPostSection.PostDetails) }}>
-                                Post Details</p>
-                            <p
-                                className={`${styles.NavItem} ${this.state.activeSection == EditableJobPostSection.JobInfo && styles.ActiveNavItem}`}
-                                onClick={() => { this.setSection(EditableJobPostSection.JobInfo) }}>
-                                Job Info</p>
-                            <p
-                                className={`${styles.NavItem} ${this.state.activeSection == EditableJobPostSection.Forms && styles.ActiveNavItem}`}
-                                onClick={() => { this.setSection(EditableJobPostSection.Forms) }}>
-                                Forms</p>
-                            <p
-                                className={`${styles.NavItem} ${this.state.activeSection == EditableJobPostSection.Publish && styles.ActiveNavItem}`}
-                                onClick={() => { this.setSection(EditableJobPostSection.Publish) }}>
-                                Publish
-              </p>
-                        </div>
-                    </div>
-                    <div className={styles.HeaderRight}>
+            <div className={styles.PageContainer}>
+                <PageHead />
+                <Sidebar activePage={Page.Jobs} />
+                <div className={styles.MainContainer}>
+                    <LogoutButton />
+                    <NavHeader
+                        title="New Job Post"
+                        activeSection={this.state.activeSection}
+                        setSection={(section: EditableJobPostSection) => { this.setSection(section) }}
+                        navSections={[
+                            { title: "Post Details", section: EditableJobPostSection.PostDetails},
+                            { title: "Job Info", section: EditableJobPostSection.JobInfo },
+                            { title: "Forms", section: EditableJobPostSection.Forms},
+                            { title: "Publish", section: EditableJobPostSection.Publish}
+                        ]}>
                         <StyledButton
                             text="PREVIEW JOB POST"
                             action={() => { this.previewClicked() }}
@@ -436,20 +432,7 @@ class EditableJobPost extends Component<MyProps, MyState> {
                             leftIcon="/link-out-icon-white.png"
                             rounded
                         />
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    render() {
-        return (
-            <div className={styles.PageContainer}>
-                <PageHead />
-                <Sidebar activePage={Page.Jobs} />
-                <div className={styles.MainContainer}>
-                    <LogoutButton />
-                    {this.renderHeader()}
+                    </NavHeader>
                     <div className={styles.ContentContainer}>
                         {this.renderSection()}
                         <div className={styles.Spacer2} />

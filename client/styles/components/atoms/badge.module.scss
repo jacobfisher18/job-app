@@ -1,23 +1,24 @@
 @import '../../variables.scss';
 
 .Container {
-    border-radius: 3px;
+    border-radius: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 6px 12px;
+    padding: 0px 10px;
+    height: 22px;
 }
 
 .Container p {
     font-family: 'brandon-med';
-    font-size: $font-xxs;
+    font-size: $font-xxxs;
     color: #565656;
     letter-spacing: -0.05px;
 }
 
 .Container img {
-    height: 14px;
-    margin-left: 10px;
+    height: 10px;
+    margin-left: 5px;
 }
 
 .Blue {

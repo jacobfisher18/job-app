@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../styles/pages/jobs.module.scss';
 import PageHead from '../components/organisms/page-head';
-import Sidebar from '../components/organisms/sidebar';
-import { Page } from '../util/pages';
+import Sidebar, { Page } from '../components/organisms/sidebar';
 import JobPostListItem from '../components/molecules/job-post-list-item';
 import LogoutButton from '../components/atoms/logout-button';
 import Dropdown from '../components/atoms/dropdown';
@@ -32,9 +31,7 @@ export default function Jobs() {
     useEffect(() => {
         getJobPostsForCompany(companyInfo.id)
             .then(res => {
-                console.log(res);
                 setJobPostsData(res);
-                this.setStateFromApiData(res);
             })
             .catch(err => {
                 // TODO: handle error
@@ -54,7 +51,7 @@ export default function Jobs() {
                         action={async () => {
                             setIsNewJobPostLoading(true);
                             createBlankJobPostForCompany(companyInfo.name, companyInfo.id).then((id: string) => {
-                                router.push(`/new-job-post/${id}`);
+                                router.push(`/posts/new/${id}`);
                                 setIsNewJobPostLoading(false);
                             }).catch(err => {
                                 setIsNewJobPostLoading(false);
@@ -80,6 +77,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsLocationExpanded(!isLocationExpanded) }}
                             setExpandedFalse={() => { setIsLocationExpanded(false) }}
                         />
+                        <div className={styles.Spacer3}/>
                         <Dropdown
                             title="DEPARTMENT"
                             options={[{
@@ -99,6 +97,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsDepartmentExpanded(!isDepartmentExpanded) }}
                             setExpandedFalse={() => { setIsDepartmentExpanded(false) }}
                         />
+                        <div className={styles.Spacer3}/>
                         <Dropdown
                             title="TIME"
                             options={[{
@@ -112,6 +111,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsTimeExpanded(!isTimeExpanded) }}
                             setExpandedFalse={() => { setIsTimeExpanded(false) }}
                         />
+                        <div className={styles.Spacer3}/>
                         <Dropdown
                             title="STATUS"
                             options={[{
@@ -142,7 +142,6 @@ export default function Jobs() {
                                         isFullTime={true}
                                         applicants={23}
                                         jobPostId={item.id}
-                                        onClick={() => { router.push(`/posts/${item.id}`); }}
                                     />
                                 )
                             }) : <p>loader?</p>
