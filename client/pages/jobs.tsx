@@ -28,7 +28,7 @@ export default function Jobs() {
 
     const [isNewJobPostLoading, setIsNewJobPostLoading] = useState(false);
 
-    useEffect(() => {
+    const fetchData = () => {
         getJobPostsForCompany(companyInfo.id)
             .then(res => {
                 setJobPostsData(res);
@@ -36,7 +36,9 @@ export default function Jobs() {
             .catch(err => {
                 // TODO: handle error
             })
-    }, []);
+    }
+
+    useEffect(fetchData, []);
 
     return (
         <div className={styles.PageContainer}>
@@ -77,7 +79,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsLocationExpanded(!isLocationExpanded) }}
                             setExpandedFalse={() => { setIsLocationExpanded(false) }}
                         />
-                        <div className={styles.Spacer3}/>
+                        <div className={styles.Spacer3} />
                         <Dropdown
                             title="DEPARTMENT"
                             options={[{
@@ -97,7 +99,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsDepartmentExpanded(!isDepartmentExpanded) }}
                             setExpandedFalse={() => { setIsDepartmentExpanded(false) }}
                         />
-                        <div className={styles.Spacer3}/>
+                        <div className={styles.Spacer3} />
                         <Dropdown
                             title="TIME"
                             options={[{
@@ -111,7 +113,7 @@ export default function Jobs() {
                             flipExpanded={() => { setIsTimeExpanded(!isTimeExpanded) }}
                             setExpandedFalse={() => { setIsTimeExpanded(false) }}
                         />
-                        <div className={styles.Spacer3}/>
+                        <div className={styles.Spacer3} />
                         <Dropdown
                             title="STATUS"
                             options={[{
@@ -141,7 +143,8 @@ export default function Jobs() {
                                         department={item.data.details.department}
                                         isFullTime={true}
                                         applicants={23}
-                                        jobPostId={item.id}
+                                        postId={item.id}
+                                        refetchData={() => { fetchData() }}
                                     />
                                 )
                             }) : <p>loader?</p>

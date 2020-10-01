@@ -13,7 +13,6 @@ router.post('/', jobPostValidationRules, validator, async (req: express.Request,
     try {
         await docRef.set(newJobPost);
     } catch(error) {
-        console.log(error)
         return res.status(500).send({
             error
         });
@@ -75,13 +74,32 @@ router.get('/:id', async (req: express.Request, res: express.Response) => {
         });
     }
 
-    console.log('data:', snapshot);
-
     return res.send({
         message: "Document retrieved.",
         id: docRef.id,
         path: docRef.path,
         data
+    });
+});
+
+// Delete a job post
+router.delete('/:id', async (req: express.Request, res: express.Response) => {
+    const id = req.params.id;
+
+    const docRef = getDB().collection(DBCollection.JobPosts).doc(id);
+
+    try {
+        await docRef.delete();
+    } catch(error) {
+        return res.status(500).send({
+            error
+        });
+    }
+
+    return res.send({
+        message: "Document deleted.",
+        id: docRef.id,
+        path: docRef.path,
     });
 });
 
